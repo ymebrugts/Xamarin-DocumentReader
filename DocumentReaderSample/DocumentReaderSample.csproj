@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net8.0-android;net8.0-ios;</TargetFrameworks>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>DocumentReaderSample</RootNamespace>
     <UseMaui>true</UseMaui>
     <SingleProject>true</SingleProject>

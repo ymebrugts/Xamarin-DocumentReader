@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-ios;net8.0-android</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+    <RootNamespace>DocumentReaderSample.Bootstrap</RootNamespace>
+    <AndroidMinVersion>v7.0</AndroidMinVersion>		
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>DocumentReader Sample Bootstrap</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.bpiservices.idscanmobile</ApplicationId>
+		<ApplicationIdGuid>a24bfde4-f896-4622-812f-92bbb65bed93</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">13.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+		<!-- TODO: Ui test -->
+		<!--<EmbedAssembliesIntoApk Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">True</EmbedAssembliesIntoApk>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+
+		<!-- Splash Screen -->
+		<!-- <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios'" /> -->
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<MauiAsset Include="Platforms\Android\Assets\Regula\db.dat" />
+		<MauiAsset Include="Resources\regula.license" />
+		<MauiAsset Include="Resources\db.dat" />
+	</ItemGroup>
+  
+	<ItemGroup>
+	  <ProguardConfiguration Include="Platforms\Android\proguard.cfg" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\AppIcon\" />
+    <Folder Include="Resources\Images\" />
+    <Folder Include="Resources\Splash\" />
+  </ItemGroup>
+  <ItemGroup>
+    <MauiAsset Include="Platforms\Android\Assets\regula.license" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework.Contains('-android')) Or $(TargetFramework.Contains('-ios'))">
+    <ProjectReference Include="..\DocumentReaderSample\DocumentReaderSample.csproj" />
+  </ItemGroup>
+</Project>

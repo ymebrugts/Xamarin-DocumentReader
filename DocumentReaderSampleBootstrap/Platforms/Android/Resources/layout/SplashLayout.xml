@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"    
+    android:orientation="vertical"    
+    android:layout_width="fill_parent"    
+    android:layout_height="fill_parent"    
+    android:minWidth="25px"    
+    android:minHeight="25px"
+    >   
+    <LinearLayout      
+        android:layout_marginTop="69dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+      <ImageView         
+      android:src="@drawable/splash_image"
+      android:layout_width="150dp"    
+      android:layout_height="wrap_content"    
+      android:adjustViewBounds="true"
+      android:id="@+id/imageView1"    
+      android:layout_gravity="center" />
+    <TextView
+        android:layout_marginTop="24dp"
+        android:textSize="32sp"        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"        
+        android:textAlignment="center"
+        android:text="Loading"
+        android:textColor="@color/primaryColor"
+        android:fontFamily="segoe_ui"
+        />
+            <ProgressBar 
+        android:layout_marginTop="24dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:progressTint="@color/primaryColor"
+        android:progressBackgroundTint="@color/primaryColor"
+        android:indeterminateTint="@color/primaryColor"
+        />
+    </LinearLayout>
+
+
+         <ImageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="50px"
+        android:layout_marginRight="50px"        
+        android:src="@drawable/companylogo" />
+
+    
+</RelativeLayout>

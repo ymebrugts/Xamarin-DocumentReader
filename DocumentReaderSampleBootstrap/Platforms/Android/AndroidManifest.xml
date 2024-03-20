@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest android:allowBackup="false" android:extractNativeLibs="true" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="144" package="com.bpiservices.idscanmobile" android:installLocation="auto" android:versionName="2.0.0">
+	<uses-sdk android:minSdkVersion="24" android:targetSdkVersion="34" />
+	<application tools:replace="android:label" android:label="ID App" android:icon="@drawable/splash_image">
+		<activity android:name="eu.bpiservices.bpi.IDApp.MainActivity" android:launchMode="standard" android:noHistory="false" android:theme="@style/Maui.MainTheme.NoActionBar" android:configChanges="orientation|screenSize" android:screenOrientation="portrait" android:exported="true"></activity>
+		<activity android:name="eu.bpiservices.bpi.IDApp.SplashScreen" android:launchMode="standard" android:theme="@style/MyTheme.Splash" android:exported="true" android:noHistory="true">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="" android:host="IDAppbpi" />
+				<data android:scheme="https" android:host="idapp.bpiservices.eu/en/" />
+				<data android:scheme="https" android:host="idapp.bpiservices.eu" />
+				<data android:pathPattern=".*" />
+			</intent-filter>
+		</activity>
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.CAMERA" />
+	<uses-permission android:name="android.hardware.camera" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+</manifest>

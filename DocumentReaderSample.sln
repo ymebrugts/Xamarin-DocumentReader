@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
+# Visual Studio Version 17
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentReaderSample", "DocumentReaderSample\DocumentReaderSample.csproj", "{BB066DA3-F2F3-4471-99FD-513C5D97AE91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentReaderSample.Bootstrap", "DocumentReaderSampleBootstrap\DocumentReaderSample.Bootstrap.csproj", "{FA170768-8E1A-4215-9C83-A692E4ED2632}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{BB066DA3-F2F3-4471-99FD-513C5D97AE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB066DA3-F2F3-4471-99FD-513C5D97AE91}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB066DA3-F2F3-4471-99FD-513C5D97AE91}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FA170768-8E1A-4215-9C83-A692E4ED2632}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA170768-8E1A-4215-9C83-A692E4ED2632}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA170768-8E1A-4215-9C83-A692E4ED2632}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA170768-8E1A-4215-9C83-A692E4ED2632}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

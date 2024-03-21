@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DocumentReaderSample.Platforms.iOS;
 using Foundation;
 using UIKit;
 
@@ -10,6 +11,13 @@ namespace DocumentReaderSample.Bootstrap.bpi
     {
         protected override MauiApp CreateMauiApp()
         {
+            _ = new DocReaderCore.iOS.DocumentReader();
+            _ = new BTDevice.iOS.RGLBTManager();
+
+            DependencyService.Register<IDocReaderInit, DocReaderInit>();
+            DependencyService.Register<IDocReaderScanner, DocReaderScanner>();
+            DependencyService.Register<IPhotoPickerService, PhotoPickerService>();
+
             return MauiProgram.CreateMauiApp();
         }
 

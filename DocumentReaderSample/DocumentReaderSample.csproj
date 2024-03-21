@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net8.0-android;net8.0-ios;</TargetFrameworks>
@@ -18,31 +18,42 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+  </PropertyGroup>
   <ItemGroup>
-    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
-    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128"/>
-    <MauiImage Include="Resources\Images\*"/>
-    <MauiFont Include="Resources\Fonts\*"/>
-    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0"/>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6"/>
+    <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+    <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+    <MauiImage Include="Resources\Images\*" />
+    <MauiFont Include="Resources\Fonts\*" />
+    <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
-    <PackageReference Include="Xamarin.DocumentReader.BTDevice.iOS" Version="6.8.318"/>
-    <PackageReference Include="Xamarin.DocumentReader.Api.iOS" Version="7.1.3379"/>
-    <PackageReference Include="Xamarin.DocumentReader.Core.FullRfid.iOS" Version="7.1.8787"/>
+    <PackageReference Include="Xamarin.DocumentReader.BTDevice.iOS" Version="6.8.318" />
+    <PackageReference Include="Xamarin.DocumentReader.Api.iOS" Version="7.1.3379" />
+    <PackageReference Include="Xamarin.DocumentReader.Core.FullRfid.iOS" Version="7.1.8787" />
   </ItemGroup>
   <ItemGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
-    <PackageReference Include="Xamarin.DocumentReader.BTDevice.Android" Version="1.1.394"/>
-    <PackageReference Include="Xamarin.DocumentReader.Api.Android" Version="7.1.9667"/>
-    <PackageReference Include="Xamarin.DocumentReader.Core.FullRfid.Android" Version="7.1.10515"/>
+    <PackageReference Include="Xamarin.DocumentReader.BTDevice.Android" Version="1.1.394" />
+    <PackageReference Include="Xamarin.DocumentReader.Api.Android" Version="7.1.9667" />
+    <PackageReference Include="Xamarin.DocumentReader.Core.FullRfid.Android" Version="7.1.10515" />
   </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Resources\Raw\regula.license"/>
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\Raw\regula.license"/>
-  </ItemGroup>
+
+  	<ItemGroup>
+		<PackageReference Include="AWSSDK.Rekognition" Version="3.7.300.12" />
+		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="3.0.1" />
+		<PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face" Version="2.8.0-preview.3" />
+		<PackageReference Include="ReactiveUI" Version="19.5.1" />
+		<PackageReference Include="ReactiveUI.Maui" Version="19.5.1" />
+		<PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
 </Project>

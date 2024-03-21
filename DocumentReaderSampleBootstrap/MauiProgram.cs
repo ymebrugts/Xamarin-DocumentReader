@@ -14,13 +14,6 @@ public static class MauiProgram
         .UseMauiCommunityToolkit()
         .UseMauiCommunityToolkitMediaElement()
         .UseMauiCompatibility()
-        .ConfigureFonts(fonts =>
-        {
-            fonts.AddFont("calibri.ttf", "calibri");
-            fonts.AddFont("Segoe_UI.ttf", "segoe_ui");
-            fonts.AddFont("materialdesignicons_webfont.ttf", "materialdesigniconswebfont");
-            fonts.AddFont("Segoe_UI_Bold_Italic.ttf", "segoe_ui_bold_italic");
-        })
         
         .UseMauiApp<App>((builder) => new App())
 #if IOS
@@ -34,8 +27,6 @@ public static class MauiProgram
         ;
 
         var app = builder.Build();
-
-        ServiceHelper.Initialize(app.Services);
 
         return app;
     }

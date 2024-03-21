@@ -2,6 +2,7 @@
 using Android.Runtime;
 using Com.Regula.Documentreader.Api;
 using Com.Regula.Documentreader.Api.Enums;
+using DocumentReaderSample.Platforms.Android;
 
 namespace DocumentReaderSample.Bootstrap.bpi
 {
@@ -12,6 +13,10 @@ namespace DocumentReaderSample.Bootstrap.bpi
         public MainApplication(IntPtr handle, JniHandleOwnership ownership)
             : base(handle, ownership)
         {
+            DependencyService.Register<IDocReaderInit, DocReaderInit>();
+            DependencyService.Register<IDocReaderScanner, DocReaderScanner>();
+            DependencyService.Register<IPhotoPickerService, PhotoPickerService>();
+
         }
 
         protected override MauiApp CreateMauiApp()

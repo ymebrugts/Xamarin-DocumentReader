@@ -28,6 +28,19 @@
 		<!--<EmbedAssembliesIntoApk Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">True</EmbedAssembliesIntoApk>-->
 	</PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+    <CodesignEntitlements>Platforms\iOS\Entitlements.plist</CodesignEntitlements>
+    <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
+    <CodesignProvision>ID App Provisioning 2024</CodesignProvision>
+    <CodesignKey>Apple Development: Yme Brugts (WUA9PW32G8)</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0-ios|AnyCPU'">
+    <CreatePackage>false</CreatePackage>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <ApplicationVersion>1</ApplicationVersion>
+    <RuntimeIdentifiers>ios-arm64</RuntimeIdentifiers>
+  </PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 
@@ -53,8 +66,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.6" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.7" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.7" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,7 +79,17 @@
     <MauiAsset Include="Platforms\Android\Assets\regula.license" />
   </ItemGroup>
 
+
+
   <ItemGroup Condition="$(TargetFramework.Contains('-android')) Or $(TargetFramework.Contains('-ios'))">
     <ProjectReference Include="..\DocumentReaderSample\DocumentReaderSample.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Update="Platforms\iOS\Assets.xcassets\companylogo.imageset\companylogo%403x.png">
+      <Link>Assets.xcassets\companylogo.imageset\companylogo%403x.png</Link>
+    </ImageAsset>
+    <ImageAsset Update="Platforms\iOS\Assets.xcassets\companylogo.imageset\companylogo%402x.png">
+      <Link>Assets.xcassets\companylogo.imageset\companylogo%402x.png</Link>
+    </ImageAsset>
   </ItemGroup>
 </Project>
